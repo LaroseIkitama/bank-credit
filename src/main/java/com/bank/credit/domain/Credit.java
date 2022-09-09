@@ -2,7 +2,6 @@ package com.bank.credit.domain;
 
 import javax.validation.constraints.NotNull;
 
-import com.bank.credit.entity.ClientEntity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,5 +22,5 @@ public class Credit {
 	private Integer duration;
 	
 	
-	private ClientEntity client;
+	private Client client;
 }

@@ -46,4 +46,15 @@ public class ClientEntity {
 	
 	@OneToMany(mappedBy = "client")
 	private List<CreditEntity> credits;
+	
+	
+//	public void setCredits(List<CreditEntity> credits) {
+//	    this.credits.clear();
+//
+//	    for (CreditEntity credit: credits) {
+//	    	credit.setClient(this);
+//	      this.credits.add(credit);
+//	    }
+//	}
+
 }

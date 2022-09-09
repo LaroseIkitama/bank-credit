@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 
 import com.bank.credit.domain.Credit;
+import com.bank.credit.mapper.ClientMapper;
 import com.bank.credit.mapper.CreditMapper;
 import com.bank.credit.repository.ClientRepository;
 import com.bank.credit.repository.CreditRepository;
@@ -23,9 +24,12 @@ import lombok.AllArgsConstructor;
 @Service
 public class CreditService {
 
-	CreditRepository creditRepository;
+	CreditRepository creditRepository; 
 	ClientRepository clientRepository;
+	
 	CreditMapper creditMapper;
+	ClientMapper clientMapper;
+	
 	MessageSource messageSource;
 
 
@@ -43,8 +47,16 @@ public class CreditService {
 				Locale.getDefault()))));
 	}
 
-
+	
 	public Credit createCredit(Credit credit) {
+		clientRepository.findById(credit.getClient().getId()).orElseThrow(() ->
+        new EntityNotFoundException(
+                messageSource.getMessage("client.notfound",
+                        new Object[]{credit.getClient().getId()},
+                        Locale.getDefault())
+                )
+        );
+		
 		creditRepository.findByCreditNumberIgnoreCase(credit.getCreditNumber())
 		.ifPresent(entity -> {
 			throw new RequestException(messageSource.getMessage("credit.exists", new Object[]{credit.getCreditNumber()},

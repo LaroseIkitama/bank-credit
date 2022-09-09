@@ -10,5 +10,4 @@ import com.bank.credit.entity.CreditEntity;
 public interface CreditRepository extends JpaRepository<CreditEntity, String> {
 
 	Optional<CreditEntity> findByCreditNumberIgnoreCase(String creditNumber);
-
 }

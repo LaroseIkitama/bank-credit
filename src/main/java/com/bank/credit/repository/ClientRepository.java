@@ -1,5 +1,6 @@
 package com.bank.credit.repository;
 
+
 import java.util.Optional;
 
 import org.springframework.data.repository.PagingAndSortingRepository;

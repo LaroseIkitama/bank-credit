@@ -1,6 +1,7 @@
 package com.bank.credit.service;
 
 
+
 import java.util.Locale;
 
 
@@ -29,7 +30,7 @@ public class ClientService {
 
 
 	public Client createClient(Client client) {
-		clientRepository.findByAdress(client.getAdress())
+		clientRepository.findById(client.getId())
 		.ifPresent(entity -> {
 			throw new RequestException(messageSource.getMessage("client.exists", new Object[]{client.getAdress()},
 					Locale.getDefault()), HttpStatus.CONFLICT);
@@ -65,4 +66,6 @@ public class ClientService {
 		new EntityNotFoundException(messageSource.getMessage("client.notfound", new Object[]{id},
 				Locale.getDefault()))));
 	}
+	
+	
 }
