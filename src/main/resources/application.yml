@@ -1,0 +1,40 @@
+server:
+  port: 8080
+  
+spring:
+  datasource:
+    password:
+    url: jdbc:mysql://localhost:3306/bank_credit?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    username: root
+  application:
+    name: bank_credit
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,wavefront
+  info:
+    env:
+      enabled: true
+
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+info:
+  application:
+    name: bank_credit
+    version: '@project.version@'
+
+wavefront:
+  application:
+    name: bank_credit
+
+logging:
+  file:
+    name: C:/Users/IKI/Documents/workspace-spring-tool-suite-4-4.15.1.RELEASE/bank_credit/logs/myLog.log
+  level:
+    org:
+      springframework:
+        web: DEBUG

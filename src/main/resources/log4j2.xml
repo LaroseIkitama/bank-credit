@@ -5,7 +5,7 @@
 			%xwEx
 		</Property>
 		<Property name="LOG_PATTERN_LEVEL">
-			%-5level [spring-training,%X{traceId},%X{spanId}]
+			%-5level [bank_credit,%X{traceId},%X{spanId}]
 		</Property>
 		<Property name="LOG_DATEFORMAT_PATTERN">
 			yyyy-MM-dd HH:mm:ss.SSS
