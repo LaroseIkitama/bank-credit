@@ -6,6 +6,10 @@ spring:
     password:
     url: jdbc:mysql://localhost:3306/bank_credit?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
     username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
   application:
     name: bank_credit
 
