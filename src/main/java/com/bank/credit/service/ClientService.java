@@ -20,7 +20,7 @@ import com.bank.credit.repository.ClientRepository;
 import lombok.AllArgsConstructor;
 
 
-@AllArgsConstructor
+
 @Service
 public class ClientService {
 	ClientRepository clientRepository;
@@ -32,7 +32,7 @@ public class ClientService {
 	public Client createClient(Client client) {
 		clientRepository.findById(client.getId())
 		.ifPresent(entity -> {
-			throw new RequestException(messageSource.getMessage("client.exists", new Object[]{client.getAdress()},
+			throw new RequestException(messageSource.getMessage("client.exists", new Object[]{client.getId()},
 					Locale.getDefault()), HttpStatus.CONFLICT);
 		});
 		return clientMapper.toClient(clientRepository.save(clientMapper.fromClient(client)));
